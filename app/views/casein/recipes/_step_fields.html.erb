@@ -1,0 +1,11 @@
+<fieldset class='highlight-box'>
+	<div class="col-lg-8 col-md-8">
+		<%= casein_hidden_field f, f.object, :_destroy %>
+		<%= casein_text_area f, f.object, :instruction, :class => 'description-box-small' %>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= casein_text_field f, f.object, :image %>
+		<%= link_to 'remove', '#', :class => 'remove_fields' %>
+	</div>
+<hr />
+</fieldset>

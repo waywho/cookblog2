@@ -19,6 +19,7 @@ module Casein
   
     def show
       @casein_page_title = 'View recipe'
+      @recipe.steps.build
     end
   
     def import
@@ -30,6 +31,7 @@ module Casein
     def new
       @casein_page_title = 'Add a new recipe'
       @recipe = Recipe.new
+      3.times { @recipe.steps.build }
     end
 
     def create
