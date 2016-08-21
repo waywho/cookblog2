@@ -1,0 +1,8 @@
+recipe_wb = xlsx_package.workbook
+
+recipe_wb.add_worksheet(name: "classes-#{Date.today}") do |sheet|
+	sheet.add_row @recipees.first.attributes.keys.to_a
+	@recipes.each do |recipe|
+		sheet.add_row recipe.attributes.values.to_a
+	end
+end

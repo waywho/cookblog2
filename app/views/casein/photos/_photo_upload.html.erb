@@ -1,0 +1,6 @@
+<br />
+	<%= form_for @photo, :url => casein_photos_path, html: { :class => 'dropzone-imageable dropzone', :id => 'my-awesome-dropzone'} do |builder| %>
+		<%= casein_hidden_field builder, builder.object, :imageable_id, value: imageable.id %>
+		<%= casein_hidden_field builder, builder.object, :imageable_type, value: imageable.class.name %>
+	<% end %>
+	<br />
