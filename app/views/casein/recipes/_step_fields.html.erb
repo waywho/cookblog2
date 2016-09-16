@@ -4,7 +4,10 @@
 		<%= casein_text_area f, f.object, :instruction, :class => 'description-box-small' %>
 	</div>
 	<div class="col-lg-4 col-md-4">
-		<%= casein_text_field f, f.object, :image %>
+		<% if f.object.image.present? %>
+		<%= image_tag f.object.image_url %>
+		<% end %>
+		<%= casein_file_field f, f.object, :photo, :photos_attributes %>
 		<%= link_to 'remove', '#', :class => 'remove_fields' %>
 	</div>
 <hr />

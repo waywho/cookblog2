@@ -19,7 +19,6 @@ module Casein
   
     def show
       @casein_page_title = 'View recipe'
-      @recipe.steps.build
     end
   
     def import
@@ -31,13 +30,22 @@ module Casein
     def new
       @casein_page_title = 'Add a new recipe'
       @recipe = Recipe.new
-      3.times { @recipe.steps.build }
+      @recipe.photos.build
     end
 
     def create
       @recipe = Recipe.new recipe_params
     
       if @recipe.save
+        if params[:publish]
+            @recipe.publish!
+        end
+        if params[:photos_attributes]
+          params[:photos_attributes]['image'].each do |image|
+            @recipe.photos.create(image: image)
+          end
+        end
+
         flash[:notice] = 'Recipe created'
         redirect_to casein_recipes_path
       else
@@ -50,9 +58,9 @@ module Casein
       @casein_page_title = 'Update recipe'
       
       respond_to do |format|
-          if params[:submit]
+
         if @recipe.update_attributes recipe_params
-          
+          if params[:submit]
             @recipe.submit!
           elsif params[:approve]
             @recipe.approve!
@@ -107,14 +115,15 @@ module Casein
     def destroy
 
       @recipe.destroy
-      flash[:notice] = 'Recipe has been deleted. #{undo_link}"'
+      flash[:notice] = "Recipe has been deleted. #{undo_link}"
       redirect_to casein_recipes_path
     end
   
     private
       
       def recipe_params
-        params.require(:recipe).permit(:title, :content, :keywords)
+        params.require(:recipe).permit(:title, :content, :keywords, :workflow_state,
+          {photos_attributes: [:id, :caption, :image]})
       end
       
       def undo_link

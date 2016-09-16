@@ -1,0 +1,92 @@
+/* BOOTSTRAP OVERRIDES */
+
+@import 'bootstrap/variables';
+
+.alert {
+	line-height: 22px;
+	padding: 10px 15px 10px 15px;
+}
+
+.container-navbar-brand {
+	margin-bottom: 15px;
+}
+
+.navbar-brand {
+	padding-top: 10px;
+	padding-bottom: 25px;
+	padding-left: 10px;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  color: #000000;
+  border: 1px solid #cdcdcd;
+  padding: 14px 9px 14px 9px;
+}
+
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+	color: #000000;
+  border: 0px;
+  padding: 15px 10px 15px 10px;
+}
+
+.navbar-nav > li > a {
+	color: #555555;
+	padding: 15px 10px 15px 10px;
+	margin: 3px 0px 3px 0px;
+	border-radius: 6px;
+}
+
+.pagination {
+	margin: 10px 0px 0px 0px;
+}
+
+@media screen and (max-width: 767px) {
+		#navbar.collapse, #navbar.collapsing  {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	.container-navbar-brand {
+		margin-bottom: 0px;
+	}
+
+	.navbar-collapse {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+
+	.navbar-brand {
+		padding-left: 20px;
+	}
+
+	.navbar-nav {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	.navbar-nav > li > a:hover,
+	.navbar-nav > li > a:focus {
+	  border: 1px solid #cdcdcd;
+	  padding: 4px 9px 4px 9px;
+	}
+
+	.navbar-nav > .active > a,
+	.navbar-nav > .active > a:hover,
+	.navbar-nav > .active > a:focus {
+	  border: 0px;
+	  padding: 5px 10px 5px 10px;
+	}
+
+	.navbar-nav > li > a {
+		padding: 5px 10px 5px 10px;
+		margin: 5px 5px 5px 5px;
+		border-radius: 6px;
+	}
+
+}

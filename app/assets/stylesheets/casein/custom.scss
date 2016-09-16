@@ -1,0 +1,177 @@
+/* CASEIN CUSTOM */
+/* Use this file for your project-specific Casein CSS */
+
+
+.inline-header {
+	display: inline-block;
+}
+
+/* CASEIN CUSTOM */
+/* Use this file for your project-specific Casein CSS */
+
+.description-box, .wysihtml5-sandbox {
+	min-height: 350px;
+}
+
+.description-box-large, .wysihtml5-sandbox {
+	min-height: 500px;
+}
+
+.description-box-small {
+	min-height: 80px;
+}
+
+.thumb {
+  margin-bottom: 10px;
+}
+
+.clr {
+	clear: both;
+}
+
+.image-select.selected {
+	opacity: 0.5;
+}
+
+.control-label {
+	margin-right: 25px ;
+}
+
+#current-state {
+	display: none;
+}
+
+.state-icon {
+	margin: 0px 10px 0px 10px;
+}
+
+.staff-list {
+	list-style-type: none;
+}
+
+.staff-list > .list-group-item {
+	border: none;
+}
+
+input.index-check {
+	margin: 15px 2px 15px 10px;
+}
+
+#multi {
+	margin: 0px 5px
+}
+
+.btn-index {
+	margin: 0px 2px;
+}
+
+td .form-group {
+	margin: 10px 2.5px;
+}
+
+.instruction-text {
+	font-style: italic;
+	font-size: 0.8em;
+	color: grey;
+}
+
+.nested-menu td {
+	border-left: 30px solid transparent;
+}
+
+.menu-item {
+	border-top: 2px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-style: solid;
+	border-color: white;
+	background-color: #CCCCCC;
+}
+
+.exiting-menu-list li {
+	list-style-type: none;
+	padding: 10px 10px;
+	width: 200px;
+	background-color: #FFBABA;
+	color: #969696;
+	text-align: center;
+	border: 1px 1px;
+	border-style: solid;
+	border-color: white;
+}
+
+.menu-list li {
+	list-style-type: none;
+	padding: 10px 10px;
+}
+
+.collection_check_boxes {
+	margin-left: 5px;
+	margin-right: 20px;
+	font-weight: normal;
+}
+
+.multi-record {
+	font-style: italic;
+	font-size: 12px
+}
+
+.record-title {
+	margin-right: 12px;
+	font-weight: bold;
+}
+
+.check_box {
+	margin: 5px;
+}
+
+.true-check {
+	height: 24px;
+	width: 24px;
+}
+
+.feature_page_check {
+	text-align: center;
+}
+
+.thumbnail {
+	border-radius: 0px;
+}
+
+.highlight-box {
+	border: 1px solid #e3e3e3;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	background-color: #9BCAF2;
+	padding-top: 2px;
+}
+
+.gallery-form {
+	display: none;
+}
+
+.upload-div {
+	display: none;
+}
+
+.no-photo {
+	padding: 15px 15px;
+	height: 100px;
+}
+
+#photoModalLabel {
+	display: inline
+}
+
+.gallery-btn {
+	margin: 0px 0px 0px 15px;
+}
+
+.upload-btn {
+	margin: 0px 0px 0px 15px;
+}
+
+.download {
+	display: inline-block;
+}

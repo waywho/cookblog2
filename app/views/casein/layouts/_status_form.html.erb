@@ -1,0 +1,15 @@
+<li><b>Status: </b>
+	<br />
+	<span id = 'state-status'>
+		<span id= 'current-state'><%= record.current_state %></span><span id="icon-span"><%= image_tag state_icon(record.workflow_state), :class => 'state-icon' %></span>
+		<% if current_user.is_admin? %>
+			(<%= link_to 'edit', '#', id: 'edit-state' %>)
+		<% end %>
+	</span>
+	<%= f.input :workflow_state, label: false, as: :select, :collection => record.class.states %>
+
+
+</li>
+
+<li><b>Updated at:</b>
+	<span id='update-date'><%= record.updated_at %></span></li>

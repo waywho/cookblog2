@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'casein', github: 'waywho/casein', branch: 'sidebar'
+gem 'casein',
+	:path => 'vendor/casein-sidebar',
+	:require => 'casein'
 
 gem 'axlsx', '~> 2.0.1'
 
@@ -32,6 +34,8 @@ gem 'axlsx_rails'
 gem 'acts_as_xlsx'
 
 gem 'workflow'
+
+gem 'foundation-rails'
 
 gem 'simple_form'
 
@@ -43,6 +47,17 @@ gem 'ranked-model'
 
 gem 'friendly_id', '~>5.1.0'
 
+gem 'paper_trail'
+
+gem 'figaro'
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'authlogic'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+  
+# gem 'wysiwyg-rails', '~> 2.2.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

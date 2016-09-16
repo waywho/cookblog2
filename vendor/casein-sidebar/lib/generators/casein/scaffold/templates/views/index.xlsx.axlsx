@@ -1,0 +1,8 @@
+<%= singular_name %>_wb = xlsx_package.workbook
+
+<%= singular_name %>_wb.add_worksheet(name: "<%= plural_name %>-#{Date.today}") do |sheet|
+	sheet.add_row @<%= plural_name %>.first.attributes.keys.to_a
+	@<%= plural_name %>.each do |<%= singular_name %>|
+		sheet.add_row <%= singular_name %>.attributes.values.to_a
+	end
+end

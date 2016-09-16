@@ -1,6 +1,5 @@
 class Photo < ActiveRecord::Base
-	belongs_to :imageable, polymorphic: true
-	scope :unassigned, -> { where(imageable: [nil, ""]) }
+	belongs_to :recipes
 	before_create :default_name
 	acts_as_xlsx
 

@@ -35,11 +35,12 @@ module Casein
     def create
       @photos = Photo.new photos_params
     
-      if @photos.save
-        flash[:notice] = 'Photos created'
-        redirect_to casein_photos_path
+      if @photo.save
+        respond_to do |format|
+          format.json {render json: { :photo => @photo, :link => @photo.image_url}}
+        end
       else
-        flash.now[:warning] = 'There were problems when trying to create a new photos'
+        flash.now[:warning] = 'There were problems when trying to add a new photo'
         render :action => :new
       end
     end
@@ -47,28 +48,15 @@ module Casein
     def update
       @casein_page_title = 'Update photos'
       
-      respond_to do |format|
-          if params[:submit]
-        if @photos.update_attributes photos_params
-          
-            @photos.submit!
-          elsif params[:approve]
-            @photos.approve!
-          elsif params[:reject]
-            @photos.reject!
-          elsif params[:publish]
-            @photos.publish!
-          elsif params[:unpublish]
-            @photos.unpublish!
-          end
-        
-          format.html { redirect_to casein_photos_path(@photos), notice: "Photos has been updated. #{undo_link}" }
-          format.js
-        else
-          flash.now[:warning] = 'There were problems when trying to update this photos'
-          render :action => :show
-        end
-     end
+      @photo = Photo.find params[:id]
+    
+      if @photo.update_attributes photo_params
+        flash[:notice] = 'Photo has been updated'
+        redirect_to casein_photos_path
+      else
+        flash.now[:warning] = 'There were problems when trying to update this photo'
+        render :action => :show
+      end
     end
     
     def edit_multiple
@@ -93,34 +81,48 @@ module Casein
     end
 
     def update_multiple
-     @photos = Photo.friendly.update(params[:photos].keys, params[:photos].values)
-      @photos.reject! { |photos| photos.errors.empty? }
-      if @photos.empty?
-        redirect_to casein_photos_path
-      else
-        render "photos/edit_multiple"
-      end
+      @photos = Photo.where(id: photo_params[:photo_ids]).update_all(params[:imageable])
+
+      redirect_to current_imageable_path
     end
  
     def destroy
 
       @photos.destroy
-      flash[:notice] = 'Photos has been deleted. #{undo_link}"'
+      flash[:notice] = "Photos has been deleted. #{undo_link}"
       redirect_to casein_photos_path
     end
   
     private
       
       def photos_params
-        params.require(:photos).permit(:caption, :imageable_id, :imageable_type, :image)
+        params.require(:photos).permit(:caption, {:photo_ids => []}, {:images => [] }, :imageable_id, :imageable_type, :image)
       end
       
+      def current_imageable_path
+          if params[:origin].present?
+            origin = params[:origin]
+            resource = origin['origin_type'].pluralize.downcase
+            id = origin['origin_id']
+            "/casein/#{resource}/#{id}"
+          else
+            imageable = params[:imageable]
+            resource = imageable['imageable_type'].pluralize.downcase
+            id = imageable['imageable_id']
+            if resource == ""
+              casein_photos_path
+            else
+              "/casein/#{resource}/#{id}"
+            end
+          end
+      end
+
       def undo_link
         view_context.link_to("undo", revert_version_path(@photos.versions.last), :method => :post).html_safe
       end
       
       def load_photos
-        @photos = Photo.friendly.find params[:id]
+        @photos = Photo.find params[:id]
       end
   
   end

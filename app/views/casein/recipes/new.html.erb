@@ -6,9 +6,7 @@
 <%= form_for @recipe, :url => casein_recipes_path do |f| %>
 	
 	<%= render :partial => 'casein/recipes/form', :locals => { :f => f } %>
-		<%= f.fields_for :photos do |builder| %>
-		<%= render 'casein/photos/photo_fields', f: builder %>
-		<% end %>
+		
 
 	<p class="submits">
 		<%= link_to 'Cancel', casein_recipes_path, :class => 'btn btn-mini btn-danger' %>
