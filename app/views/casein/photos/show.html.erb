@@ -2,10 +2,10 @@
 
 <h2>View photos</h2>
 
-<%= form_for @photos, :url => casein_photos_path(@photos) do |f| %>
+<%= form_for @photo, :url => casein_photos_path(@photos) do |f| %>
 
 	<%= render :partial => 'casein/photos/form', :locals => { :f => f } %>
-	
+	<br />
 	<p class="submits">
 	  	<%= link_to 'Cancel', casein_photos_path, :class => 'btn btn-mini btn-danger' %>
 		<%= render :partial => 'casein/layouts/approval_q_buttons', :locals => { :f => f } %>
@@ -16,7 +16,4 @@
 
 <%= content_for :sidebar do %>
 	<li><%= link_to "#{casein_show_icon "th-list"}Back to list".html_safe, casein_photos_path %></li>
-	<%= simple_form_for @photos, :url => casein_photos_path(@photos), html: {:id => 'stateform'}, remote: true do |f| %>
-		<%= render partial: 'casein/layouts/status_form', :locals => {:f => f, :record => @photos } %>
-	<% end %>
 <% end %>

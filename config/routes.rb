@@ -20,7 +20,10 @@ Rails.application.routes.draw do
     end
 	end
 
+  resources :recipes, :only => [:index, :show]
+
   post 'versions/:id/revert' => 'versions#revert', :as => 'revert_version'
+  get 'recipes/:keyword', :to => 'recipes#index', as: :keyword
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

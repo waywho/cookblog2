@@ -16,8 +16,8 @@
 			<td><%= check_box_tag 'recipe[recipe_ids][]', recipe.id, checked = false, { id: dom_id(recipe), :class => 'index-check' } %>
 				</td>
 			<td><%= casein_table_cell_link recipe.title, casein_recipe_path(recipe) %></td>
-			<td><%= casein_table_cell_link recipe.content, casein_recipe_path(recipe) %></td>
-			<td><%= casein_table_cell_link recipe.keywords, casein_recipe_path(recipe) %></td>
+			<td><%= casein_table_cell_link truncate(recipe.content, length: 250), casein_recipe_path(recipe) %></td>
+			<td><%= casein_table_cell_link recipe.keyword_list, casein_recipe_path(recipe) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_recipe_path(recipe), :method => :delete, :data => { :confirm => "Are you sure you want to delete this recipe?" }) %>
 			</td>

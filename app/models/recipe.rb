@@ -1,8 +1,13 @@
 class Recipe < ActiveRecord::Base
 	acts_as_xlsx
-	has_many :photos
-	accepts_nested_attributes_for :photos, allow_destroy: true
+	has_one :photo
+	accepts_nested_attributes_for :photo, allow_destroy: true
+	has_many :ingredient_forms
+	has_many :ingredients, through: :ingredient_forms
+	accepts_nested_attributes_for :ingredient_forms, allow_destroy: true
 	
+	acts_as_taggable_on :keyword
+
 	extend FriendlyId
 	friendly_id :title, use: :slugged
 

@@ -8,7 +8,7 @@ module Casein
   
     def index
       @casein_page_title = 'Photos'
-      @photos = Photo.order(sort_order(:caption)).paginate :page => params[:page]
+      @photos = Photo.all
       respond_to do |format|
         format.html
         format.csv { send_data @photos.to_csv, filename: "photos-#{Date.today}.csv"}
@@ -29,14 +29,15 @@ module Casein
 
     def new
       @casein_page_title = 'Add a new photos'
-      @photos = Photo.new
+      @photo = Photo.new
     end
 
     def create
-      @photos = Photo.new photos_params
+      @photo = Photo.new photo_params
     
       if @photo.save
         respond_to do |format|
+          format.html {redirect_to casein_photos_path}
           format.json {render json: { :photo => @photo, :link => @photo.image_url}}
         end
       else
@@ -48,7 +49,7 @@ module Casein
     def update
       @casein_page_title = 'Update photos'
       
-      @photo = Photo.find params[:id]
+      @photos = Photo.find params[:id]
     
       if @photo.update_attributes photo_params
         flash[:notice] = 'Photo has been updated'
@@ -60,7 +61,7 @@ module Casein
     end
     
     def edit_multiple
-      @photos = Photo.where(id: photos_params[:photos_ids])
+      @photos = Photo.where(id: photo_params[:photos_ids])
 
       if params[:edit]
         render "photos/edit_multiple"
@@ -87,16 +88,16 @@ module Casein
     end
  
     def destroy
-
-      @photos.destroy
-      flash[:notice] = "Photos has been deleted. #{undo_link}"
+      @photo = Photo.find(params[:id])
+      @photo.destroy
+      flash[:notice] = "Photos has been deleted."
       redirect_to casein_photos_path
     end
   
     private
       
-      def photos_params
-        params.require(:photos).permit(:caption, {:photo_ids => []}, {:images => [] }, :imageable_id, :imageable_type, :image)
+      def photo_params
+        params.require(:photo).permit(:caption, :recipe_id, {:photo_ids => []}, {:images => [] }, :imageable_id, :imageable_type, :image)
       end
       
       def current_imageable_path
@@ -117,9 +118,6 @@ module Casein
           end
       end
 
-      def undo_link
-        view_context.link_to("undo", revert_version_path(@photos.versions.last), :method => :post).html_safe
-      end
       
       def load_photos
         @photos = Photo.find params[:id]

@@ -17,17 +17,63 @@ $(document).ready(function () {
 	  	var time = new Date().getTime();
 	  	var regexp = new RegExp($(this).data('id'), "g");
 	  	$(this).before($(this).data('fields').replace(regexp, time));
-	  	$('#courseformat_highlights_attributes_'+time+"_description").froalaEditor({
-	      	inlineMode: false,
-	      	charCounterCount: true,
-	      	linkConvertEmailAddress: true,
-	      	heightMin: 100, 
-	      	toolbarButtons: ['bold', 'italic', 'underline', 
-	      	'strikeThrough', '|', 'color', 'formatOL', 'formatUL', 'quote', 'insertLink', 'undo', 'redo', 
-	      	'clearFormatting', 'selectAll', 'html']
-	      });
 	});
 
 
+    $('.wysihtml5').each(function(i, elem) {
+      $(elem).wysihtml5( {
+      	toolbar: {
+	      'font-styles': true,
+	      'color': true,
+	      'emphasis': {
+	        'small': true
+	      },
+	      'blockquote': true,
+	      'lists': true,
+	      'html': true,
+	      'link': true,
+	      'image': true,
+	      'smallmodals': false
+	    }
+      });
+    });
 
+    function split( val ) {
+      return val.split( /,\s*/ );
+    };
+    function extractLast( term ) {
+      return split( term ).pop();
+    };
+
+    $( "#keywords" )
+      // don't navigate away from the field on tab when selecting an item
+      .bind( "keydown", function( event ) {
+        if ( event.keyCode === $.ui.keyCode.TAB &&
+            $( this ).autocomplete( "instance" ).menu.active ) {
+          event.preventDefault();
+        }
+      })
+      .autocomplete({
+        minLength: 0,
+        source: function( request, response ) {
+          // delegate back to autocomplete, but extract the last term
+          response( $.ui.autocomplete.filter(
+            $('#keywords').data('autocomplete-source'), extractLast( request.term ) ) );
+        },
+        focus: function() {
+          // prevent value inserted on focus
+          return false;
+        },
+        select: function( event, ui ) {
+          var terms = split( this.value );
+          // remove the current input
+          terms.pop();
+          // add the selected item
+          terms.push( ui.item.value );
+          // add placeholder to get the comma-and-space at the end
+          terms.push( "" );
+          this.value = terms.join( ", " );
+          return false;
+        }
+      });
 })

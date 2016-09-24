@@ -1,9 +1,16 @@
 class Photo < ActiveRecord::Base
-	belongs_to :recipes
+	belongs_to :recipe
 	before_create :default_name
 	acts_as_xlsx
 
 	mount_uploader :image, ImageUploader
+
+	def image=(val)
+    	if !val.is_a?(String) && valid?
+      		image_will_change!
+      		super
+    	end
+  	end
 
 	def default_name
 		self.caption ||= File.basename(image.filename, '.*').titleize if image

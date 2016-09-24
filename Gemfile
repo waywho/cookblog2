@@ -56,7 +56,12 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'authlogic'
 
 gem 'bootstrap-sass', '~> 3.3.6'
-  
+
+gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
+
+gem 'acts-as-taggable-on', '~> 4.0'
+
+gem 'jquery-ui-rails'
 # gem 'wysiwyg-rails', '~> 2.2.3'
 
 # Use ActiveModel has_secure_password
