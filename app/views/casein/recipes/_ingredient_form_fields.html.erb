@@ -1,21 +1,20 @@
-
-<fieldset class=''>
-
-	<div class="col-lg-2 col-md-2">
-		<%= casein_text_field f, f.object, :amount %>
-	</div>
-	<div class="col-lg-2 col-md-2">
-		<%= casein_text_field f, f.object, :unit %>
-	</div>
-	<div class="col-lg-4 col-md-4">
+<tr>	
+	<td>
+		<%= f.input :amount, label: false, input_html: {class: 'form-control'} %>
+	</td>
+	<td>
+		<%= f.input :unit, label: false, input_html: {class: 'form-control'}  %>
+	</td>
+	<td>
 		<%= f.simple_fields_for :ingredient, f.object.ingredient do |builder| %>
-			<%= casein_text_field builder, builder.object, :name %>
+			<%= builder.input :name, label: false, input_html: {class: 'form-control'}  %>
 		<% end %>
-	</div>
-	<div class="col-lg-4 col-md-4">
-		<%= casein_text_field f, f.object, :processed_form %>
+	</td>
+	<td>
+		<%= f.input :processed_form, label: false, input_html: {class: 'form-control'} %>
+	</td>
+	<td>
 		<%= casein_hidden_field f, f.object, :_destroy %>
 		<%= link_to 'remove', '#', :class => 'remove_fields' %>
-	</div>
-<hr />
-</fieldset>
+	</td>
+</tr>

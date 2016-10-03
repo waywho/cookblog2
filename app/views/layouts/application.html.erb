@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -16,29 +17,26 @@
     <header>
       <!-- Sub Navigation -->
       <div class="top-bar">
-        <div class="top-bar-left">
+        <div class="top-bar-right">
           <ul class="menu">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
+            <li><a href="#">About</a></li>
           </ul>
         </div>
-        <div class="top-bar-right">
+<!--         <div class="top-bar-right">
           <ul class="menu">
             <li><input type="search" placeholder="Search"></li>
             <li><button type="button" class="button">Search</button></li>
           </ul>
-        </div>
+        </div> -->
       </div>
       <!-- /Sub Navigation -->
 
       <!-- logo and ad break -->
       <div class="row">
-        <div class="medium-4 columns">
-          <img src="http://placehold.it/450x183&text=LOGO" alt="company logo">
+        <div class="medium-4 columns hdr-row">
+          <%= image_tag 'ChineseCookingLogo.png', :alt => 'Chinese Cooking at Home Logo' %>
         </div>
-        <div class="medium-8 columns">
+        <div class="medium-8 columns hdr-row">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- Banner-food -->
           <ins class="adsbygoogle"
@@ -51,9 +49,7 @@
         </div>
       </div>
       <!-- / logo and ad break -->
-      
-      <br>
-
+    
       <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
         <button class="menu-icon" type="button" data-toggle></button>
         <div class="title-bar-title">Menu</div>
@@ -61,48 +57,10 @@
 
       <div class="top-bar" id="main-menu">
         <ul class="menu vertical medium-horizontal expanded medium-text-center" data-responsive-menu="drilldown medium-dropdown">
-          <li class="has-submenu"><a href="#">Tech</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu"><a href="#">Energy</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu"><a href="#">Space</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu"><a href="#">Medicine</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu"><a href="#">Robotics</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu"><a href="#">Tesla</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">One</a></li>
-              <li><a href="#">Two</a></li>
-              <li><a href="#">Three</a></li>
-            </ul>
-          </li>
+          <li><a href="#">Main Dish</a></li>
+          <li><a href="#">Dessert</a></li>
+          <li><a href="#">Articles & Tips</a></li>
+          <li><a href="#">Deals</a></li>
         </ul>
       </div>
 
@@ -136,16 +94,16 @@
       <div class="row expanded">
 
         <div class="medium-6 columns">
-          <ul class="menu">
+<!--           <ul class="menu">
             <li><a href="#">Legal</a></li>
             <li><a href="#">Partner</a></li>
             <li><a href="#">Explore</a></li>
           </ul>
-        </div>
+        </div> -->
 
         <div class="medium-6 columns">
           <ul class="menu align-right">
-            <li class="menu-text">Copyright © 2099 Random Mag</li>
+            <li class="menu-text">Copyright © 2016 Chinese Cooking at Home</li>
           </ul>
         </div>
       </div>

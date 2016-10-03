@@ -1,9 +1,9 @@
 class Photo < ActiveRecord::Base
+	mount_uploader :image, ImageUploader
+
 	belongs_to :recipe
 	before_create :default_name
 	acts_as_xlsx
-
-	mount_uploader :image, ImageUploader
 
 	def image=(val)
     	if !val.is_a?(String) && valid?

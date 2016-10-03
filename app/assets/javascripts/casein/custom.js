@@ -16,7 +16,7 @@ $(document).ready(function () {
 		event.preventDefault();
 	  	var time = new Date().getTime();
 	  	var regexp = new RegExp($(this).data('id'), "g");
-	  	$(this).before($(this).data('fields').replace(regexp, time));
+	  	$(this).closest("tr").before($(this).data('fields').replace(regexp, time));
 	});
 
 

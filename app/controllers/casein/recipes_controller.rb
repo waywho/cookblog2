@@ -21,6 +21,11 @@ module Casein
       @casein_page_title = 'View recipe'
       @ingredient_forms = @recipe.ingredient_forms
       @ingredient = @recipe.ingredients
+      if @recipe.photo.present? 
+        @photo = @recipe.photo
+      else
+        @photo = @recipe.build_photo
+      end
     end
   
     def import
@@ -32,6 +37,7 @@ module Casein
     def new
       @casein_page_title = 'Add a new recipe'
       @recipe = Recipe.new
+      @recipe.build_photo
       3.times { @recipe.ingredient_forms.build.build_ingredient }
     end
 
@@ -62,13 +68,7 @@ module Casein
       respond_to do |format|
 
         if @recipe.update_attributes recipe_params
-          if params[:submit]
-            @recipe.submit!
-          elsif params[:approve]
-            @recipe.approve!
-          elsif params[:reject]
-            @recipe.reject!
-          elsif params[:publish]
+          if params[:publish]
             @recipe.publish!
           elsif params[:unpublish]
             @recipe.unpublish!
@@ -125,7 +125,7 @@ module Casein
       
       def recipe_params
         params.require(:recipe).permit(:title, :content, :keywords, :workflow_state, :keyword_list,
-          {photo_attributes: [:id, :caption, :image, :recipe_id]}, {:recipe_ids => []},
+          {photo_attributes: [:id, :caption, :image, :recipe_id]}, {:recipe_ids => []}, :photo,
           {ingredient_forms_attributes: [:_destroy, :amount, :unit, :processed_form, :id, ingredient_attributes: [:name, :id]] })
       end
       

@@ -1,15 +1,16 @@
 class RecipesController < ApplicationController
 	def index
-		@tags = Recipe.tag_counts_on(:keyword)
+		@tags = Recipe.published_now.tag_counts_on(:keyword)
 		if params[:keyword]
-			@recipes = Recipe.tagged_with(params[:keyword]).order(:title)
+			@recipes = Recipe.published_now.tagged_with(params[:keyword]).order(:title)
 		else
-			@recipes = Recipe.all
+			@recipes = Recipe.published_now
 		end
+		@feature_recipe = Recipe.feature_recipe
 	end
 
 	def show
-		@recipe = Recipe.friendly.find params[:id]
+		@recipe = Recipe.published_now.friendly.find params[:id]
 	end
 
 end

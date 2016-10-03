@@ -62,6 +62,8 @@ gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
 gem 'acts-as-taggable-on', '~> 4.0'
 
 gem 'jquery-ui-rails'
+
+gem 'social-share-button'
 # gem 'wysiwyg-rails', '~> 2.2.3'
 
 # Use ActiveModel has_secure_password

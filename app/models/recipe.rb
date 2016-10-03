@@ -13,6 +13,9 @@ class Recipe < ActiveRecord::Base
 
 	has_paper_trail
 
+	scope :published_now, -> { self.with_published_state.where('published_at <= ?', Time.zone.now)}
+	scope :feature_recipe, -> { self.published_now.last}
+
 	include Workflow
 
 	workflow do
@@ -27,6 +30,15 @@ class Recipe < ActiveRecord::Base
 
 	def self.states
 		workflow_spec.state_names
+	end
+	
+	def publish
+		update_attribute(:published_at, Time.zone.now) if self.published_at.nil?
+		# menus.create(name: self.title, menu_type: 'main')
+	end
+
+	def unpublish
+		update_attribute(:published_at, nil)
 	end
 
 	def self.to_csv

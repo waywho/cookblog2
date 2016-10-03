@@ -1,14 +1,14 @@
 
 
 <div class="row">
-  <%= link_to recipe_path(@recipes.first) do %>
+  <%= link_to recipe_path(@feature_recipe) do %>
     <div class="medium-8 columns">
-      <p><%= image_tag @recipes.first.photo.image_url if @recipes.first.photo.present? %></p>
+      <p><%= image_tag @feature_recipe.photo.image_url if @feature_recipe.photo.present? %></p>
     </div>
   <% end %>
     <div class="medium-4 columns">
-      <p><%= link_to image_tag @recipes.second.photo.image_url, recipe_path(@recipes.second) if @recipes.second.present? && @recipes.second.photo.present? %></p>
-      <p><%= image_tag @recipes.third.photo.image_url if @recipes.third.present? && @recipes.third.photo.present? %></p>
+      <p><%= image_tag @recipes.offset(rand(@recipes.count)).first.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
+      <p><%= image_tag @recipes.offset(rand(@recipes.count)).first.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
     </div>
 
 </div>
@@ -67,24 +67,13 @@
       <div class="row small-up-3">
 
         <div class="column text-center">
-          <i class="fi-social-facebook"></i>
-          <h6>56,009</h6>
-          <p><small>FOLLOWERS</small></p>
-          <br>
+        <%= link_to image_tag('twitter-icon.png', :class => 'header-social-icon social-icon'), 'https://twitter.com/Stinky_Tofu', :id => 'social-icon-link-twitter' %>
         </div>
-
         <div class="column text-center">
-          <i class="fi-social-twitter"></i>
-          <h6>76,905</h6>
-          <p><small>FOLLOWERS</small></p>
-          <br>
+        <%= link_to image_tag('facebook-icon.png', :class => 'header-social-icon social-icon'), 'https://www.facebook.com/cookingchineseathome/', :id => 'social-icon-link-facebook' %>
         </div>
-
         <div class="column text-center">
-          <i class="fi-social-instagram"></i>
-          <h6>34,099</h6>
-          <p><small>FOLLOWERS</small></p>
-          <br>
+        <%= link_to image_tag('youtube-icon2.png', :class => 'header-social-icon social-icon'), 'https://www.youtube.com/channel/UC0w5U7pqq4Q3zWN1rSsGAWQ', :id => 'social-icon-link-youtube' %>
         </div>
 
       </div>
@@ -111,7 +100,7 @@
 
       <br>
 
-      <div class="row column">
+      <!-- <div class="row column">
         <p class="lead">TRENDING POSTS</p>
 
         <div class="media-object">
@@ -121,7 +110,7 @@
           <div class="media-object-section">
             <h5>All I need is a space suit and I'm ready to go.</h5>
           </div>
-        </div>
+        </div> -->
 
       </div>
       
