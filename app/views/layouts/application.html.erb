@@ -34,7 +34,9 @@
       <!-- logo and ad break -->
       <div class="row">
         <div class="medium-4 columns hdr-row">
+          <%= link_to root_path do %>
           <%= image_tag 'ChineseCookingLogo.png', :alt => 'Chinese Cooking at Home Logo' %>
+          <% end %>
         </div>
         <div class="medium-8 columns hdr-row">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -57,10 +59,10 @@
 
       <div class="top-bar" id="main-menu">
         <ul class="menu vertical medium-horizontal expanded medium-text-center" data-responsive-menu="drilldown medium-dropdown">
-          <li><a href="#">Main Dish</a></li>
-          <li><a href="#">Dessert</a></li>
-          <li><a href="#">Articles & Tips</a></li>
-          <li><a href="#">Deals</a></li>
+          <li><%= link_to 'Main Dishes', main_dishes_recipes_path %></li>
+          <li><%= link_to 'Desserts', desserts_recipes_path %></li>
+          <li><%= link_to 'Articles & Tips', articles_tips_recipes_path %></li>
+          <li><%= link_to 'Deals', deals_recipes_path %></li>
         </ul>
       </div>
 
@@ -101,7 +103,7 @@
           </ul>
         </div> -->
 
-        <div class="medium-6 columns">
+        <div class="large-12 medium-12 columns">
           <ul class="menu align-right">
             <li class="menu-text">Copyright © 2016 Chinese Cooking at Home</li>
           </ul>

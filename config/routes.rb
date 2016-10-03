@@ -20,7 +20,14 @@ Rails.application.routes.draw do
     end
 	end
 
-  resources :recipes, :only => [:index, :show]
+  resources :recipes, only: [:index, :show] do
+    collection do
+      get :main_dishes
+      get :desserts
+      get :articles_tips
+      get :deals
+    end
+  end
 
   post 'versions/:id/revert' => 'versions#revert', :as => 'revert_version'
   get 'recipes/:keyword', :to => 'recipes#index', as: :keyword

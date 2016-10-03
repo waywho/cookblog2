@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003071717) do
+ActiveRecord::Schema.define(version: 20161003093854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,8 +88,10 @@ ActiveRecord::Schema.define(version: 20161003071717) do
     t.string   "slug"
     t.string   "workflow_state"
     t.datetime "published_at"
+    t.string   "category"
   end
 
+  add_index "recipes", ["category"], name: "index_recipes_on_category", using: :btree
   add_index "recipes", ["slug"], name: "index_recipes_on_slug", using: :btree
   add_index "recipes", ["user_id"], name: "index_recipes_on_user_id", using: :btree
 

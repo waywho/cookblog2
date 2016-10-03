@@ -124,7 +124,7 @@ module Casein
     private
       
       def recipe_params
-        params.require(:recipe).permit(:title, :content, :keywords, :workflow_state, :keyword_list,
+        params.require(:recipe).permit(:title, :content, :keywords, :workflow_state, :keyword_list, :category,
           {photo_attributes: [:id, :caption, :image, :recipe_id]}, {:recipe_ids => []}, :photo,
           {ingredient_forms_attributes: [:_destroy, :amount, :unit, :processed_form, :id, ingredient_attributes: [:name, :id]] })
       end

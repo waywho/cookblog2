@@ -8,6 +8,8 @@ class Recipe < ActiveRecord::Base
 	
 	acts_as_taggable_on :keyword
 
+	CATEGORIES = ["Main Dish", "Dessert", "Articles & Tips", "Deals"]
+
 	extend FriendlyId
 	friendly_id :title, use: :slugged
 
@@ -15,6 +17,10 @@ class Recipe < ActiveRecord::Base
 
 	scope :published_now, -> { self.with_published_state.where('published_at <= ?', Time.zone.now)}
 	scope :feature_recipe, -> { self.published_now.last}
+	scope :main_dishes, -> {self.published_now.where(category: "Main Dish")}
+	scope :desserts, -> {self.published_now.where(category: "Dessert")}
+	scope :articles_tips, -> {self.published_now.where(category: "Articles & Tips")}
+	scope :deals, -> {self.published_now.where(category: "Deals")}
 
 	include Workflow
 

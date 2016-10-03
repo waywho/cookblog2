@@ -8,10 +8,10 @@
 
     <article>      
         <div class="row">         
-          <div class="large-6 medium-6 columns">
+          <div class="large-6 medium-12 columns">
             <p>
-              <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-              <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+              <!-- <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span> -->
+              <span><i class="fi-calendar"> <%= @recipe.published_at %></i></span>
             </p>
             <p><%= @recipe.content.html_safe %></p>
           </div>
@@ -23,31 +23,14 @@
 
   </div>
 
-  <div class="large-4 columns">
+  <div class="large-4 medium-12 columns">
 
     <aside>
 
       <div class="row small-up-3">
 
         <div class="column text-center">
-          <i class="fi-social-facebook"></i>
-          <h6>56,009</h6>
-          <p><small>FOLLOWERS</small></p>
-          <br>
-        </div>
-
-        <div class="column text-center">
-          <i class="fi-social-twitter"></i>
-          <h6>76,905</h6>
-          <p><small>FOLLOWERS</small></p>
-          <br>
-        </div>
-
-        <div class="column text-center">
-          <i class="fi-social-instagram"></i>
-          <h6>34,099</h6>
-          <p><small>FOLLOWERS</small></p>
-          <br>
+          <%= social_share_button_tag(@recipe) %>
         </div>
 
       </div>
@@ -56,23 +39,19 @@
 
       <div class="row column">
         <p class="lead">FROM OUR FRIENDS</p>
-        <p><img src="http://placehold.it/400x300&text=Buy Me!" alt="advertisement of ShamWow"></p>
-      </div>
-
-      <br>
-
-      <div class="row column">
-        <p class="lead">TRENDING POSTS</p>
-
-        <div class="media-object">
-          <div class="media-object-section">
-            <img class="thumbnail" src= "http://placehold.it/100">
-          </div>
-          <div class="media-object-section">
-            <h5>All I need is a space suit and I'm ready to go.</h5>
-          </div>
-        </div>
-
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- sidebar ad -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:300px;height:250px"
+               data-ad-client="ca-pub-9281207145489175"
+               data-ad-slot="6308620045"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+          </p>
+          <p>
+          <!--START MERCHANT:te'ts from affiliatewindow.com.-->               <script language="JavaScript" src="https://www.awin1.com/cawshow.php?s=358764&v=3691&q=169484&r=217929"></script><noscript><iframe src="https://www.awin1.com/cawshow.php?s=358764&v=3691&q=169484&r=217929&iframe=1&target=blank" width=468 height=60 frameborder=0 border=0 scrolling=no marginheight=0 marginwidth=0></iframe></noscript>            <!--START MERCHANT:te'ts from affiliatewindow.com.-->
+          </p>
       </div>
       
     </aside>

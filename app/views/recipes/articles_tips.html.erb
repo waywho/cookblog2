@@ -1,0 +1,34 @@
+<div class="row">
+
+  <div class="medium-12 large-12 columns">
+    <h1>Articles & Tips</h1>
+    <p class="subheader">There are many different techniques in Chinese cooking. For many people different ingredients can be confusing. This is where you can find out more about cooking techniques and learn more about thee ingredients.</p>
+  </div>
+ </div>
+
+ <div class="row column">
+  <hr>
+</div>
+
+<div class="row column">
+  <p class="lead">Recipes</p>
+</div>
+
+<div class="row small-up-1 medium-up-2 large-up-3">
+	<% @recipes.each do |recipe| %>
+		<%= link_to recipe_path(recipe) do %>
+			  <div class="column">
+			    <div class="callout">
+			      <p>Articles & Tips</p>
+			      <p><%= image_tag recipe.photo.image.url if recipe.photo.present? %></p>
+			      <p class="lead"><%= recipe.title %></p>
+			      <p class="subheader"><%= recipe.keyword_list %></p>
+			    </div>
+			  </div>
+		  <% end %>
+	<% end %>
+</div>
+
+<div class="row column">
+  <a class="button hollow expanded">Load More</a>
+</div>
