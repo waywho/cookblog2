@@ -17,6 +17,7 @@
 //= require bootstrap-wysihtml5/locales
 //= require foundation
 //= require social-share-button
+//= require google_analytics
 //= require turbolinks
 //= require_tree .
 

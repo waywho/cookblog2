@@ -8,7 +8,7 @@
   <% end %>
     <div class="medium-4 columns">
       <p><%= image_tag @recipes.offset(rand(@recipes.count)).first.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
-      <p><%= image_tag @recipes.offset(rand(@recipes.count)).first.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
+      <p><%= image_tag @recipes.offset(rand(@recipes.count)).second.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
     </div>
 
 </div>
