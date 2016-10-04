@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
 		if params[:keyword]
 			@recipes = Recipe.published_now.tagged_with(params[:keyword]).order(:title)
 		else
-			@recipes = Recipe.published_now
+			@recipes = Recipe.published_now.paginate(:page => params[:page], :per_page => 6)
 		end
 		@feature_recipe = Recipe.feature_recipe
 	end
@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
 		if params[:keyword]
 			@recipes = Recipe.main_dishes.tagged_with(params[:keyword]).order(:title)
 		else
-			@recipes = Recipe.main_dishes
+			@recipes = Recipe.main_dishes.paginate(:page => params[:page], :per_page => 6)
 		end
 	end
 
@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
 		if params[:keyword]
 			@recipes = Recipe.desserts.tagged_with(params[:keyword]).order(:title)
 		else
-			@recipes = Recipe.desserts
+			@recipes = Recipe.desserts.paginate(:page => params[:page], :per_page => 6)
 		end
 	end
 
@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
 		if params[:keyword]
 			@recipes = Recipe.articles_tips.tagged_with(params[:keyword]).order(:title)
 		else
-			@recipes = Recipe.articles_tips
+			@recipes = Recipe.articles_tips.paginate(:page => params[:page], :per_page => 6)
 		end	
 	end
 
@@ -40,7 +40,7 @@ class RecipesController < ApplicationController
 		if params[:keyword]
 			@recipes = Recipe.deals.tagged_with(params[:keyword]).order(:title)
 		else
-			@recipes = Recipe.deals
+			@recipes = Recipe.deals.paginate(:page => params[:page], :per_page => 6)
 		end
 	end
 
