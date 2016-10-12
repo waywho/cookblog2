@@ -120,7 +120,7 @@ module Casein
       end
       
       def load_ad
-        @ad = Ad.friendly.find params[:id]
+        @ad = Ad.find params[:id]
       end
   
   end
