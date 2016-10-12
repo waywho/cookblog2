@@ -35,7 +35,7 @@
           <div class="large-6 medium-6 columns">
             <h5><%= recipe.title %></h5>
             <p>
-              <span><i class="fi-calendar"><%= recipe.published_at %></i></span>
+              <span><i class="fi-calendar"><%= recipe.published_at.strftime("%d-%m-%Y") %></i></span>
             </p>
             <p><%= truncate(recipe.content.html_safe {link_to 'continue', recipe_path(recipe)},length: 140) %></p>
           </div>
@@ -71,49 +71,14 @@
 
       <div class="row column">
         <p class="lead">FROM OUR FRIENDS</p>
+        <%= render :partial => 'layouts/side_column_ads' %>
         <p>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- ad-cookblog 2 -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-9281207145489175"
-               data-ad-slot="7401385642"
-               data-ad-format="auto"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+          
         </p>
         <p>
-          <!-- START ADVERTISER: lastminute.com from affiliatewindow.com -->
 
-          <a href="https://www.awin1.com/cread.php?s=487007&v=4329&q=35130&r=217929">
-              <img src="https://www.awin1.com/cshow.php?s=487007&v=4329&q=35130&r=217929" border="0">
-          </a>
-          <!-- END ADVERTISER: lastminute.com from affiliatewindow.com -->
         </p>
-        <p>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- ad-cookblog -->
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-9281207145489175"
-               data-ad-slot="6064253240"
-               data-ad-format="auto"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </p>
-        <p>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- side-vertical -->
-          <ins class="adsbygoogle"
-               style="display:inline-block;width:300px;height:600px"
-               data-ad-client="ca-pub-9281207145489175"
-               data-ad-slot="8459316449"></ins>
-          <script>
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
-        </p>
+        
       </div>
 
       <br>

@@ -3,7 +3,20 @@ Rails.application.routes.draw do
   root "recipes#index"
 	#Casein routes
 	namespace :casein do
-		resources :steps
+		resources :offers do
+      collection do
+        post :edit_multiple
+        post :update_multiple
+        post :import
+      end
+     end
+		resources :ads do
+      collection do
+        post :edit_multiple
+        post :update_multiple
+        post :import
+      end
+	   end
 		resources :photos do
       collection do
         post :edit_multiple
@@ -28,6 +41,8 @@ Rails.application.routes.draw do
       get :deals
     end
   end
+
+  resources :offers, only: [:index]
 
   post 'versions/:id/revert' => 'versions#revert', :as => 'revert_version'
   get 'recipes/:keyword', :to => 'recipes#index', as: :keyword
