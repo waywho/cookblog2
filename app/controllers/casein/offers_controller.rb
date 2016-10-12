@@ -48,15 +48,8 @@ module Casein
       @casein_page_title = 'Update offer'
       
       respond_to do |format|
-          if params[:submit]
         if @offer.update_attributes offer_params
-          
-            @offer.submit!
-          elsif params[:approve]
-            @offer.approve!
-          elsif params[:reject]
-            @offer.reject!
-          elsif params[:publish]
+          if params[:publish]
             @offer.publish!
           elsif params[:unpublish]
             @offer.unpublish!
@@ -112,7 +105,7 @@ module Casein
     private
       
       def offer_params
-        params.require(:offer).permit(:title, :content, :expiration_date)
+        params.require(:offer).permit(:title, :content, :expiration_date, :link)
       end
       
       def undo_link
