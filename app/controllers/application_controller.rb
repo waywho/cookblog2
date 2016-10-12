@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 	end
 
 	def load_ads
-		@ads = Ad.limit(3)
+		@ads = Ad.all
 	end
 end
