@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
 
 	def index
-		@offers = Offer.all
+		@offers = Offer.order(ends: :desc)
 	end
 end
