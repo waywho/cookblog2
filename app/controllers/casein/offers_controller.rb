@@ -105,7 +105,9 @@ module Casein
     private
       
       def offer_params
-        params.require(:offer).permit(:title, :content, :expiration_date, :link)
+        params.require(:offer).permit(:title, :description, :ends, :deeplink_tracking,
+          :promotion_id, :advertiser, :advertiser_id, :offer_type, :code, :starts, :categories,
+          :regions, :deeplink, :commission_groups, :commission, :exclusive, :date_added, :terms, {:offer_ids => []})
       end
       
       def undo_link

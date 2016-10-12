@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012093929) do
+ActiveRecord::Schema.define(version: 20161012144953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,15 +68,29 @@ ActiveRecord::Schema.define(version: 20161012093929) do
 
   create_table "offers", force: :cascade do |t|
     t.string   "title"
-    t.text     "content"
-    t.datetime "expiration_date"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.text     "link"
+    t.text     "description"
+    t.datetime "ends"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.text     "deeplink_tracking"
     t.string   "slug"
+    t.integer  "promotion_id"
+    t.string   "advertiser"
+    t.integer  "advertiser_id"
+    t.string   "offer_type"
+    t.string   "code"
+    t.datetime "starts"
+    t.string   "categories"
+    t.string   "regions"
+    t.text     "terms"
+    t.string   "deeplink"
+    t.string   "commission_groups"
+    t.string   "commission"
+    t.string   "exclusive"
+    t.datetime "date_added"
   end
 
-  add_index "offers", ["expiration_date"], name: "index_offers_on_expiration_date", using: :btree
+  add_index "offers", ["ends"], name: "index_offers_on_ends", using: :btree
   add_index "offers", ["slug"], name: "index_offers_on_slug", using: :btree
 
   create_table "photos", force: :cascade do |t|

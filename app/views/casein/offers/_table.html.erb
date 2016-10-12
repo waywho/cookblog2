@@ -5,8 +5,10 @@
 		<tr>
 			<th><%= check_box_tag 'multi' %></th>
 			<th><%= casein_sort_link "Title", :title %></th>
-			<th><%= casein_sort_link "Content", :content %></th>
-			<th><%= casein_sort_link "Expiration date", :expiration_date %></th>
+			<th><%= casein_sort_link "Description", :description %></th>
+			<th><%= casein_sort_link "Type", :offer_type %></th>
+			<th><%= casein_sort_link "Starts", :starts %></th>
+			<th><%= casein_sort_link "Ends", :ends %></th>
 			<th>&nbsp;</th>
 		</tr>
 	</thead>
@@ -16,8 +18,10 @@
 			<td><%= check_box_tag 'offer[offer_ids][]', offer.id, checked = false, { id: dom_id(offer), :class => 'index-check' } %>
 				</td>
 			<td><%= casein_table_cell_link offer.title, casein_offer_path(offer) %></td>
-			<td><%= casein_table_cell_link offer.content, casein_offer_path(offer) %></td>
-			<td><%= casein_table_cell_link offer.expiration_date, casein_offer_path(offer) %></td>
+			<td><%= casein_table_cell_link truncate(offer.description, length: 100), casein_offer_path(offer) %></td>
+			<td><%= casein_table_cell_link offer.offer_type, casein_offer_path(offer) %></td>
+			<td><%= casein_table_cell_link offer.starts, casein_offer_path(offer) %></td>
+			<td><%= casein_table_cell_link offer.ends, casein_offer_path(offer) %></td>
 			<td class="delete">
 				<%= link_to(casein_show_row_icon("trash"), casein_offer_path(offer), :method => :delete, :data => { :confirm => "Are you sure you want to delete this offer?" }) %>
 			</td>
