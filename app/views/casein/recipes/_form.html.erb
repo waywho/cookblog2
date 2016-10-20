@@ -16,7 +16,7 @@
 					<%= builder.file_field :image %>
 				</div>
 			<% else %>
-				<%= image_tag builder.object.image.url %>
+				<%= image_tag builder.object.image.url, :class => 'img img-responsive' %>
 				<%= builder.check_box :_destroy %>
 			<% end %>	
 		<% end %>
