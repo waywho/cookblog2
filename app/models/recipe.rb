@@ -63,4 +63,8 @@ class Recipe < ActiveRecord::Base
 			item.save!
 		end
 	end
+
+	# def self.rand_feature
+	# 	offset(self.count - 1).first
+	# end
 end

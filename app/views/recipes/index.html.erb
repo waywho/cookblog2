@@ -7,8 +7,8 @@
     </div>
   <% end %>
     <div class="medium-4 columns">
-      <p><%= image_tag @recipes.offset(rand(@recipes.count)).first.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
-      <p><%= image_tag @recipes.offset(rand(@recipes.count)).second.photo.image_url if @recipes.offset(rand(@recipes.count)).first.present? && @recipes.offset(rand(@recipes.count)).first.photo.present? %></p>
+      <p><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
+      <p><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
     </div>
 
 </div>
@@ -24,7 +24,7 @@
 <div class="row">
   <div class="large-8 medium-12 columns" style="border-right: 1px solid #E3E5E8;">
 
-  <article>
+    <article>
 
     <% @recipes.each do |recipe| %>
       <div class="row">
@@ -44,10 +44,11 @@
     <% end %>
 
     <hr>
-    <%= will_paginate @recipes %>
 
    </article>
-
+    <div class="row column">
+      <%= will_paginate @recipes %>
+    </div>
   </div>
 
   <div class="large-4 medilum-12 columns">
