@@ -9,7 +9,7 @@ module Casein
   
     def index
       @casein_page_title = 'Offers'
-      @offers = Offer.order(sort_order(:title)).paginate :page => params[:page]
+      @offers = Offer.order(sort_order(:ends)).paginate :page => params[:page]
       respond_to do |format|
         format.html
         format.csv { send_data @offers.to_csv, filename: "offers-#{Date.today}.csv"}
@@ -86,7 +86,7 @@ module Casein
     end
 
     def update_multiple
-     @offers = Offer.friendly.update(params[:offers].keys, params[:offers].values)
+     @offers = Offer.update(params[:offers].keys, params[:offers].values)
       @offers.reject! { |offer| offer.errors.empty? }
       if @offers.empty?
         redirect_to casein_offers_path
@@ -115,7 +115,7 @@ module Casein
       end
       
       def load_offer
-        @offer = Offer.friendly.find params[:id]
+        @offer = Offer.find params[:id]
       end
   
   end

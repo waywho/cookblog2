@@ -1,15 +1,12 @@
 class Offer < ActiveRecord::Base
-	before_save :set_defaults
-
-	extend FriendlyId
-	friendly_id :title, use: :slugged
+	# before_save :set_defaults
 
 	has_paper_trail
 	acts_as_xlsx
 
-	def set_defaults
-    	self.title = "#{self.advertiser} #{self.starts.strftime('%m-%d')}" if self.new_record?
-  	end
+	# def set_defaults
+ #    	self.title = "#{self.advertiser} #{self.starts.strftime('%m-%d')}" if self.new_record?
+ #  	end
  	def self.to_csv
 		CSV.generate do |csv|
 			csv << column_names
@@ -23,6 +20,7 @@ class Offer < ActiveRecord::Base
 		CSV.foreach(file.path, headers: true) do |row|
 			item = find_by_id(row["id"]) || new
 			item.attributes = row.to_hash.slice(*self.column_names)
+			item.title = "#{item.advertiser} #{item.starts.strftime('%d-%m-%Y')}" if item.starts.present?
 			item.save!
 		end
 	end
