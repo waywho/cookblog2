@@ -19,7 +19,7 @@
 
 					    <div class="callout" id="offer-callout">
 					    	<div class = "right">
-								<%= image_tag offer.partner_asset.logo_url %>
+								<%= image_tag offer.partner_asset.logo_url if offer.partner_asset.present? %>
 							</div>
 					    	<h4><%= offer.advertiser %></h4>
 					    	<%= offer.description.html_safe %>
