@@ -3,6 +3,13 @@ Rails.application.routes.draw do
   root "recipes#index"
 	#Casein routes
 	namespace :casein do
+		resources :partner_assets do
+      collection do
+        post :edit_multiple
+        post :update_multiple
+        post :import
+      end
+    end
 		resources :offers do
       collection do
         post :edit_multiple

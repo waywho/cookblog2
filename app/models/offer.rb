@@ -1,5 +1,7 @@
 class Offer < ActiveRecord::Base
 	# before_save :set_defaults
+	before_save :set_relationship
+	belongs_to :partner_asset
 
 	has_paper_trail
 	acts_as_xlsx
@@ -7,6 +9,14 @@ class Offer < ActiveRecord::Base
 	# def set_defaults
  #    	self.title = "#{self.advertiser} #{self.starts.strftime('%m-%d')}" if self.new_record?
  #  	end
+
+ 	def set_relationship
+ 		if self.deeplink.present?
+ 			domain = URI.parse(self.deeplink).host
+ 			self.partner_asset_id = PartnerAsset.where(:retailer_domain => domain).first.id
+ 		end
+ 	end
+
  	def self.to_csv
 		CSV.generate do |csv|
 			csv << column_names

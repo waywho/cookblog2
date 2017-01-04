@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104142614) do
+ActiveRecord::Schema.define(version: 20170104192318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,9 +87,17 @@ ActiveRecord::Schema.define(version: 20170104142614) do
     t.string   "commission"
     t.string   "exclusive"
     t.datetime "date_added"
+    t.integer  "partner_asset_id"
   end
 
   add_index "offers", ["ends"], name: "index_offers_on_ends", using: :btree
+
+  create_table "partner_assets", force: :cascade do |t|
+    t.string   "retailer_domain"
+    t.string   "logo_url"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "caption"
