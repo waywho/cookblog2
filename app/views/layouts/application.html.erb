@@ -29,10 +29,10 @@
       <div class="row">
         <div class="medium-4 columns hdr-row">
           <%= link_to root_path do %>
-          <%= image_tag 'ChineseCookingLogo.png', :alt => 'Chinese Cooking at Home Logo' %>
+            <%= image_tag 'ChineseCookingLogo.png', :alt => 'Chinese Cooking at Home Logo' %>
           <% end %>
         </div>
-        <div class="medium-8 columns hdr-row">
+        <div class="medium-8 columns hdr-row hide-for-small-only">
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <!-- Banner-food -->
           <ins class="adsbygoogle"
@@ -45,7 +45,7 @@
         </div>
       </div>
       <!-- / logo and ad break -->
-      <br class="clr" />
+      <div class="row">
         <ul class="header-subnav">
           <li><%= link_to 'Main Dishes', main_dishes_recipes_path %></li>
           <li><%= link_to 'Desserts', desserts_recipes_path %></li>
