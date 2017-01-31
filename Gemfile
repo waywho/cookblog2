@@ -64,6 +64,8 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'jquery-ui-rails'
 
 gem 'social-share-button'
+
+gem 'html_truncator', '~> 0.2'
 # gem 'wysiwyg-rails', '~> 2.2.3'
 
 # Use ActiveModel has_secure_password

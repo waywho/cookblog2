@@ -23,7 +23,7 @@
 <div class="row">
   <div class="large-8 medium-12 columns" style="border-right: 1px solid #E3E5E8;">
 
-    <article>
+    <article class="recipe-index">
       <% @recipes.each do |recipe| %>
         <div class="row">
           <%= link_to recipe_path(recipe) do %>
@@ -31,11 +31,11 @@
               <p><%= image_tag recipe.photo.image_url if recipe.photo.present? %></p>
             </div>
             <div class="large-6 medium-6 columns">
-              <h5><%= recipe.title %></h5>
+              <h5 class='home-recipe-title'><%= recipe.title %></h5>
               <p>
                 <span><i class="fi-calendar"><%= recipe.published_at.strftime("%d-%m-%Y") %></i></span>
               </p>
-              <p><%= truncate(recipe.content.html_safe {link_to 'continue', recipe_path(recipe)},length: 140) %></p>
+              <p><%= HTML_Truncator.truncate(recipe.content, 250, :length_in_chars => true).html_safe %></p>
             </div>
           <% end %>
         </div>
