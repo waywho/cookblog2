@@ -6,8 +6,8 @@
     </div>
   <% end %>
     <div class="medium-4 columns">
-      <p><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
-      <p><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
+      <p class="hide-for-small-only">><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
+      <p class="hide-for-small-only"><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
     </div>
 
 </div>
