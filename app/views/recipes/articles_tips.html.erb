@@ -13,7 +13,35 @@
 <div class="row">
 	<div class="large-8 medium-12 columns" style="border-right: 1px solid #E3E5E8;">
 	    <article>
-		    <% @recipes.each do |recipe| %>
+		    <% @recipes.each_with_index do |recipe, index| %>
+            <% if index.odd? %>
+            <div class="row show-for-small-only">
+                            
+              <!-- START ADVERTISER: Chocolate Trading Company from affiliatewindow.com -->
+
+              <a href="https://www.awin1.com/cread.php?s=581449&v=350&q=285041&r=217929">
+                  <img src="https://www.awin1.com/cshow.php?s=581449&v=350&q=285041&r=217929" border="0">
+              </a>
+
+              <!-- END ADVERTISER: Chocolate Trading Company from affiliatewindow.com -->
+
+            </div>
+            <br />
+            <br />
+            <% else %>
+            <div class = "row show-for-small-only">
+         
+            <!-- START ADVERTISER: Waitrose Florist from affiliatewindow.com -->
+
+            <a href="https://www.awin1.com/cread.php?s=581811&v=4383&q=285283&r=217929">
+                <img src="https://www.awin1.com/cshow.php?s=581811&v=4383&q=285283&r=217929" border="0">
+            </a>
+            </div>
+
+            <!-- END ADVERTISER: Waitrose Florist from affiliatewindow.com -->
+            <br />
+            <br />
+            <% end %>
 		      <div class="row">
 		        <%= link_to recipe_path(recipe) do %>
 		          <div class="large-6 medium-6 columns">
