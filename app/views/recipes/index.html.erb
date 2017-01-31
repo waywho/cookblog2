@@ -1,13 +1,22 @@
 
-<div class="row">
+<div class="row feature-row">
   <%= link_to recipe_path(@feature_recipe) do %>
     <div class="medium-8 columns">
       <p><%= image_tag @feature_recipe.photo.image_url if @feature_recipe.photo.present? %></p>
     </div>
   <% end %>
     <div class="medium-4 columns">
-      <p class="hide-for-small-only">><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
-      <p class="hide-for-small-only"><%= image_tag rand_recipe(@recipes).photo.image_url if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %></p>
+      <div class="row feature-sub">
+        <% if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %>
+          <p class="hide-for-small-only feature-image"><%= link_to image_tag(rand_recipe(@recipes).photo.image_url), recipe_path(rand_recipe(@recipes)) %></p>
+        <% end %>
+      </div>
+      <div class="row feature-sub">
+        <% if rand_recipe(@recipes).present? && rand_recipe(@recipes).photo.present? %>
+          <p class="hide-for-small-only"><%= link_to image_tag(rand_recipe(@recipes).photo.image_url), recipe_path(rand_recipe(@recipes)) %>
+          </p>
+        <% end %>
+      </div>
     </div>
 
 </div>

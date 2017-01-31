@@ -119,3 +119,13 @@ $transition: all .35s ease-in-out;
 .recipe-index, .recipe-index a {
   color: black;
 }
+
+.feature-row {
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.feature-sub {
+  max-height: 50%;
+  overflow: hidden;
+}
