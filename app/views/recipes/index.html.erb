@@ -72,7 +72,7 @@
               <p>
                 <span><i class="fi-calendar"><%= recipe.published_at.strftime("%d-%m-%Y") %></i></span>
               </p>
-              <p><%= HTML_Truncator.truncate(recipe.content, 250, :length_in_chars => true).html_safe %></p>
+              <p class="hide-for-small-only"><%= HTML_Truncator.truncate(recipe.content, 180, :length_in_chars => true).html_safe %></p>
             </div>
           <% end %>
         </div>
