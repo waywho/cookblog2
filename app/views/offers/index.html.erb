@@ -38,7 +38,14 @@
 					    		<div class="small-9 medium-9 columns">
 					    			<span class="<%= offer.ends.to_date.future? ? 'success':'expired' %> button" id="deal-button"> Get the Deal</span>
 					    		</div>
-					    		<div class="small-3 medilum-3 columns end"><b>Expires: </b><%= offer.ends.strftime("%d/%m/%Y") %></div>
+					    		<div class="small-3 medilum-3 columns end">
+
+					    			<% if (offer.ends.to_date - DateTime.now.to_date).to_i <= 0 %>
+					    				<b>Deal expired</b>
+					    			<% else %>
+					    				<b>Expires in <%= (offer.ends.to_date - DateTime.now.to_date).to_i %> days</b>
+					    			<% end %>
+					    		</div>
 					    	</div>
 					    </div>
 				    <% end %>
