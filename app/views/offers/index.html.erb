@@ -18,17 +18,24 @@
 					<%= link_to offer.deeplink_tracking.html_safe, :target => "_blank" do %>
 
 					    <div class="callout" id="offer-callout">
-					    	<div class = "right">
-								<%= image_tag offer.partner_asset.logo_url if offer.partner_asset.present? %>
-							</div>
-					    	<h4><%= offer.advertiser %></h4>
-					    	<%= offer.description.html_safe %>
-					    	<% if offer.code.present? %>
-						    	<br />
-						    	<b>Code: </b><%= offer.code %>
-					    	<% end %>
-					    	<br />
-					    	<div class="right"><b>Expires: </b><%= offer.ends.strftime("%d/%m/%Y") %></div>
+					    	<div class = "row">
+					    		<div class="small-9 medium-10 columns">
+						    		<h4><%= offer.advertiser %></h4>
+
+							    	<%= offer.description.html_safe %>
+							    	<% if offer.code.present? %>
+								    	<br />
+								    	<b>Code: </b><%= offer.code %>
+							    	<% end %>
+							    </div>								
+							    <div class="small-3 medium-2 columns">
+						    	<%= image_tag offer.partner_asset.logo_url if offer.partner_asset.present? %>
+							
+						    	</div>
+					    	</div>
+					    	<div class="row column">
+					    		<div class="right"><b>Expires: </b><%= offer.ends.strftime("%d/%m/%Y") %></div>
+					    	</div>
 					    	<br />
 					    </div>
 				    <% end %>
