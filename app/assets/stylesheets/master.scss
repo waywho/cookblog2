@@ -129,3 +129,13 @@ $transition: all .35s ease-in-out;
   max-height: 50%;
   overflow: hidden;
 }
+
+.expired {
+  background-color: #C9C9C9 !important;
+  color: #616161 !important;
+  border: 2px white solid !important;
+}
+
+#deal-button {
+  margin-bottom: 0px;
+}

@@ -17,7 +17,7 @@
 				<% @offers.each do |offer| %>
 					<%= link_to offer.deeplink_tracking.html_safe, :target => "_blank" do %>
 
-					    <div class="callout" id="offer-callout">
+					    <div class="callout <%= 'expired' if offer.ends.to_date.past? %>" id="offer-callout">
 					    	<div class = "row">
 					    		<div class="small-9 medium-10 columns">
 						    		<h4><%= offer.advertiser %></h4>
@@ -33,13 +33,16 @@
 							
 						    	</div>
 					    	</div>
-					    	<div class="row column">
-					    		<div class="right"><b>Expires: </b><%= offer.ends.strftime("%d/%m/%Y") %></div>
-					    	</div>
 					    	<br />
+					    	<div class="row">
+					    		<div class="small-9 medium-9 columns">
+					    			<span class="<%= offer.ends.to_date.future? ? 'success':'expired' %> button" id="deal-button"> Get the Deal</span>
+					    		</div>
+					    		<div class="small-3 medilum-3 columns end"><b>Expires: </b><%= offer.ends.strftime("%d/%m/%Y") %></div>
+					    	</div>
 					    </div>
 				    <% end %>
-				    <%= link_to 'Get the Deal', offer.deeplink_tracking.html_safe, class:"success button" %> 
+				    <br />
 			    <% end %>
 			 </div>
 		</div>
