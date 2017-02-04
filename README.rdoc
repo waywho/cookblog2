@@ -1,28 +1,29 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic blog site built with Ruby on Rails with a simple Content Management System.
 
-Things you may want to cover:
+It uses:
+- Foundation Zurb CSS Framework (http://foundation.zurb.com/)
+- Casein CMS (http://www.caseincms.com/)
 
-* Ruby version
+Gems include:
+gem 'axlsx', '~> 2.0.1'
+gem 'axlsx_rails'
+gem 'acts_as_xlsx'
+gem 'workflow'
+gem 'foundation-rails'
+gem 'simple_form'
+gem 'carrierwave-aws'
+gem 'mini_magick'
+gem 'ranked-model'
+gem 'friendly_id', '~>5.1.0'
+gem 'paper_trail'
+gem 'figaro'
+gem 'will_paginate', '~> 3.1.0'
+gem 'authlogic'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'jquery-ui-rails'
+gem 'social-share-button'
+gem 'html_truncator', '~> 0.2'
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
